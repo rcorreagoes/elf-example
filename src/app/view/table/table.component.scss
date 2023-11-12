@@ -1,0 +1,304 @@
+@import './../../../styles.scss';
+.container {
+	padding: -50% 20% 10% 10%;
+	text-align: center;
+	background-color: white;
+}
+
+.container-form {
+	margin-top: 30px;
+}
+
+.container-menu {
+	margin: 2% 30% 2% 30%;
+	padding: 1% 5% 2% 5%;
+	text-align: left;
+	background-color: #fff;
+	border-radius: 15px;
+}
+
+.form-inline {
+	display: inline-flex;
+	flex-flow: wrap;
+	align-items: center;
+}
+
+.inline-container {
+	block-size: fit-content;	
+}
+
+.number {
+	width: max-content;
+	font-weight: bold;
+	font-size: 42px;
+	font-family: Verdana, sans-serif;
+	padding: 8px 3px 3px;
+}
+
+.p-field {
+	margin: 0px;
+}
+
+.icon {
+	margin: -10% -20% -20% -50%;
+	font-size: 18px !important;
+}
+.data-box{
+	height: 30px;
+	width: 30rem;
+	background-color: aqua;
+}
+.p-button.p-button-rounded {
+	border-radius: 2rem;
+}
+.p-button.p-button-text {
+	background-color: transparent;
+	color: #3b82f6;
+	border-color: transparent;
+}
+.main-text {
+	white-space: nowrap;
+	position: relative;
+	max-height: fit-content;
+	width: 45px;
+	margin-top: 10px;
+	padding-bottom: 3px;
+	text-align: left;
+}
+.sub-text {
+	color: #7c8085;
+	font-size: 11px;
+	padding-top: 0rem;
+	padding-left: 12px;
+	text-align: left;
+}
+
+button {
+	width: 100%;
+	margin-top: 0.625rem;
+	}
+
+p-button{
+	margin-left: 0rem;
+	border-radius: 5px;
+	font-size: 1.08rem;
+}
+
+:host ::ng-deep .p-dropdown {
+	width: 100%;
+	margin-top: 0.625rem;
+}
+
+:host ::ng-deep .p-multiselect {
+	width: 100%;
+	margin: 0.625rem;
+}
+
+.fields {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 8px;
+}
+
+th {
+	font-size: 0.7rem;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+td {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 0.8rem;
+}
+
+p {
+	font-size: 0.9rem;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin: 0;
+}
+
+.details {
+	display: inline-block;
+	padding: 5px;
+}
+
+.expand-text {
+	font-size: 14px;
+	padding-inline: 10px;
+	margin: 2px;
+	float: left;
+}
+
+p-chip {
+	padding: 5px;
+}
+
+p-table {
+	margin-top: -60%;
+	font-size: 8px;
+}
+th{
+    font-weight: 700 !important;
+}
+td, th{
+    font-size: 1rem !important;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+    white-space: normal;
+}
+.p-button-icon{
+	padding-left: 2px;
+}
+.p-column-title {
+	display: none;
+}
+
+.download {
+	position: absolute;
+	bottom: 12px;
+	right: 20px;
+	width: auto;
+}
+
+.back {
+	width: auto;
+	position: fixed;
+	bottom: 24px;
+	left: 1.6vw;
+	text-align: center;
+}
+
+.back-text {
+	margin: 0;
+	text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+	th,
+	td {
+		display: none;
+		border: 0 none;
+	}
+	td {
+		text-align: left;
+		display: inline-flex;
+		width: 100%;
+		border: 0 none;
+	}
+	p {
+		text-align: right;
+		font-size: 8px;
+	}
+	.details {
+		width: 100%;
+		white-space: pre-line;
+		padding: 5px;
+	}
+
+	.expanded {
+		display: contents;
+	}
+
+	tr {
+		border-bottom: 2px solid #bbbbbb;
+	}
+	.p-column-title {
+		padding: 0.4rem;
+		min-width: 30%;
+		display: inline-block;
+		margin: -0.4em 1em -0.4em -0.4rem;
+		font-weight: bold;
+		font-size: 8px;
+	}
+
+	.back-text {
+		display: none;
+	}
+	.back {
+		top: 90px;
+		right: 20px;
+		left: auto;
+		bottom: auto;
+		text-align: center;
+	}
+}
+.main-text {
+	font-size: 15px;
+	margin-top: 18px;
+	padding: 0;
+}
+.number {
+	font-size: 30px;
+	margin-top: 5px;
+}
+.icon {
+	height: 90px;
+	width: 90px;
+	margin: 0px 0px -80px 0px;
+}
+
+@media screen and (max-width: 660px) {
+	.back {
+		top: 65px;
+	}
+	.main-text {
+		font-size: 10px;
+		margin-top: 18px;
+		padding: 0;
+	}
+	.number {
+		font-size: 25px;
+		margin-top: 5px;
+	}
+	.icon {
+		height: 70px;
+		width: 70px;
+		margin: 0px 0px -65px 0px;
+	}
+}
+.colorYellow{
+	color: rgba(161, 145, 0, 0.767);
+}
+.teste{
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: -0.5rem;
+	margin-left: -0.5rem;
+	margin-top: -0.5rem;
+	padding: 7px;
+}
+.ui-orderlist .ui-orderlist-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow:auto;
+    height:200px;
+    width:100%;
+}
+.p-orderlist .p-orderlist-controls {
+    display:none;
+}
+.add_item{
+	float: right;
+}
+.switch{
+	padding-bottom: 10px;
+	display: inline-flex;
+}
+.displayScreen{
+	cursor: pointer;
+	padding-right: 8px;
+}
+.colorGreen{
+	color: #53fd6a !important
+}
+.colorRed{
+	color: #fd5b5b 
+}

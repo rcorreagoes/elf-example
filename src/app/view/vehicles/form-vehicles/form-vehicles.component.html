@@ -1,0 +1,24 @@
+<p-dialog header="Vehicles" [(visible)]="_display" [modal]="true" [style]="{ width: '33%', height: 'auto', overflow: 'auto' }" [baseZIndex]="10000" [draggable]="false"
+    [contentStyle]="{ overflow: 'visible' }" (onHide)="close()">
+    <form [formGroup]="vehicleForm">
+        <div class="p-fluid p-formgrid grid">
+            <div class="field col-12">
+                <label>Make</label>
+                <input pInputText type="text" placeholder="Make" class="w-full" formControlName='make'>
+            </div>
+
+            <div class="field col-12">
+                <label>Model</label>
+                <input pInputText type="text" placeholder="Model" class="w-full" formControlName='model'>
+            </div>
+
+            <div class="field col-12">
+                <label>Trany</label>
+                <input pInputText type="text" placeholder="Trany" class="w-full" formControlName='trany'>
+            </div>   
+            <div class="field col-12">
+            <p-button (click)="save()" label="Save"></p-button>
+            </div> 
+        </div>    
+    </form>
+</p-dialog> 

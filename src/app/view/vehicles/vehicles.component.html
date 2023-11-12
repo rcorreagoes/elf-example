@@ -1,0 +1,11 @@
+<div class="right-align">
+    <p-button label="New" (click)="new()"></p-button>
+</div>
+<div class="p-fluid p-formgrid grid">
+    <app-table [colTable]="colTable"
+	    [dataTable]="resultData"
+        (buttonEmiter)="onClick($event)"
+    ></app-table>
+</div>
+
+<app-form-vehicles [display]="display" (eventOutput)="display=false"></app-form-vehicles>
