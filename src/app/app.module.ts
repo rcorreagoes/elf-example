@@ -20,7 +20,7 @@ import { VehiclesComponent } from './view/vehicles/vehicles.component';
 export function initElfDevTools(actions: Actions) {
 	return () => {
 		devTools({
-      name: 'Sample Application',
+      name: 'ELF example',
       actionsDispatcher: actions
 		})
 	};

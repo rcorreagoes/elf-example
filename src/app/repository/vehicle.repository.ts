@@ -4,7 +4,6 @@ import {
   addEntities,
   deleteEntities,
   resetActiveId,
-  selectAllEntities,
   selectFirst,
   selectLast,
   setActiveId,
@@ -36,15 +35,11 @@ export class VehicleRepository {
 
   constructor(private readonly vehicleService: VehicleService){}
 
-  vehicles$ = store.pipe(selectAllEntities());
-
   add(vehicle: Vehicle) {
     let id: number = 1
-    store.pipe(selectLast()).subscribe(result=>{
-      if(!result) return;
-      id = result.id + 1;
-    }).unsubscribe();
-
+    store.pipe(selectLast()).subscribe(result => {
+      id = result ? result.id + 1 : 1;
+    });
     store.update(addEntities({ id: id + 1, make: vehicle.make, model: vehicle.model, trany: vehicle.trany }));
   }
 
@@ -55,7 +50,7 @@ export class VehicleRepository {
   fetchCollection() {
     this.vehicleService.getVehicleData().subscribe({
       next: (result: { results: Vehicle[] }) => {
-        store.destroy();
+        //store.destroy();
         const transformedResults = result.results.map((o, index) => ({
           id: index + 1,
           make: o.make,

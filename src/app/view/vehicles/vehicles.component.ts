@@ -29,8 +29,6 @@ export class VehiclesComponent {
   }
 
   onClick(event: any){
-    console.log(event)
-
     if(event.type==="remove") this.delete(event.item.id); 
     if(event.type==="update") this.update(event.item.id); 
   }
