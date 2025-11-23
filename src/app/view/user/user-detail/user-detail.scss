@@ -23,15 +23,6 @@
     grid-template-columns: 1fr;
   }
 }
-.user-container {
-  margin: 32px auto;
-  margin: 16px;
-  height: calc(100vh - 34px);
-  padding: 24px 16px 8px 16px;
-  position: relative;
-  overflow-x: auto;
-}
-// Botão sempre visível e alinhado
 .form-actions {
   grid-column: 1/-1;
   display: flex;

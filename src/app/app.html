@@ -1,30 +1,34 @@
-<mat-card class="user-container">
+<mat-card class="main-container">
   <mat-card-content>
     <div
       style="
         display: flex;
         align-items: center;
-        gap: 12px;
+        justify-content: space-between;
         margin-bottom: 12px;
-        justify-content: flex-end;
       "
     >
-      <img
-        src="flags/pt.png"
-        alt="Português"
-        width="32"
-        style="cursor: pointer"
-        title="Português"
-        (click)="useLanguage('pt')"
-      />
-      <img
-        src="flags/uk.png"
-        alt="English"
-        width="32"
-        style="cursor: pointer"
-        title="English"
-        (click)="useLanguage('en')"
-      />
+      <button mat-stroked-button color="primary" (click)="onTopButtonClick()">
+        {{ topButtonLabel | translate }}
+      </button>
+      <div style="display: flex; align-items: center; gap: 12px">
+        <img
+          src="flags/pt.png"
+          alt="Português"
+          width="32"
+          style="cursor: pointer"
+          title="Português"
+          (click)="useLanguage('pt')"
+        />
+        <img
+          src="flags/uk.png"
+          alt="English"
+          width="32"
+          style="cursor: pointer"
+          title="English"
+          (click)="useLanguage('en')"
+        />
+      </div>
     </div>
   </mat-card-content>
 </mat-card>

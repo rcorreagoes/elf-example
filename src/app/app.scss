@@ -1,7 +1,10 @@
-.user-container {
+.main-container {
   margin: 32px auto;
   margin: 16px;
   height: 63px;
   padding: 5px;
   position: relative;
+}
+.mat-mdc-card-content:last-child {
+  margin-top: -9px;
 }

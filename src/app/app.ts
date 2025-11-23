@@ -1,14 +1,15 @@
 import { Component, inject, OnDestroy, signal } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { UserRepository } from './repository/user.repository';
 
 @Component({
   selector: 'app-root',
-  imports: [MatCardModule, MatProgressSpinnerModule, RouterOutlet, TranslatePipe],
+  imports: [MatButtonModule, MatCardModule, MatProgressSpinnerModule, RouterOutlet, TranslatePipe],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -17,6 +18,23 @@ export class App implements OnDestroy {
   loading = false;
   private globalSub?: Subscription;
   private translate = inject(TranslateService);
+  private router = inject(Router) as Router;
+
+  get isAboutElf(): boolean {
+    return this.router.url === '/' || this.router.url.startsWith('/?');
+  }
+
+  get topButtonLabel(): string {
+    return this.isAboutElf ? 'ABOUT_ELF.EXAMPLE' : 'ABOUT_ELF.HOME';
+  }
+
+  onTopButtonClick() {
+    if (this.isAboutElf) {
+      this.router.navigate(['/list']);
+    } else {
+      this.router.navigate(['/']);
+    }
+  }
 
   constructor(private readonly userRepository: UserRepository) {
     const sub = this.userRepository.fetchCollection().subscribe(() => {});

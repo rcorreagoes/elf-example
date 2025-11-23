@@ -1,4 +1,17 @@
 {
+  "ABOUT_ELF": {
+      "EXAMPLE": "Example",
+      "HOME": "Home",
+    "TITLE": "What is Elf?",
+    "DESCRIPTION": "Elf is a powerful, modern state management library for Angular. It is lightweight, tree-shakable, and provides a simple API for managing application state.",
+    "POINT1": "Reactive state management for Angular apps.",
+    "POINT2": "Inspired by Redux, but with less boilerplate.",
+    "POINT3": "Integrates easily with RxJS and Angular ecosystem.",
+    "WHAT_YOU_DID": "What was done in this project:",
+    "I18N": "Internationalization (i18n) with ngx-translate for English and Portuguese.",
+    "ELF_CRUD": "User CRUD using Elf for state management.",
+    "LANG_SWITCH": "Language switcher with flag icons and runtime switching."
+  },
   "TITLE": "elf-example",
   "USERS": "Users",
   "NEW_USER": "New User",

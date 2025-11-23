@@ -1,4 +1,17 @@
 {
+  "ABOUT_ELF": {
+    "EXAMPLE": "Exemplo",
+    "HOME": "Início",
+    "TITLE": "O que é o Elf?",
+    "DESCRIPTION": "Elf é uma biblioteca moderna e poderosa de gerenciamento de estado para Angular. É leve, tree-shakable e fornece uma API simples para gerenciar o estado da aplicação.",
+    "POINT1": "Gerenciamento de estado reativo para apps Angular.",
+    "POINT2": "Inspirado no Redux, mas com menos boilerplate.",
+    "POINT3": "Integra-se facilmente com RxJS e o ecossistema Angular.",
+    "WHAT_YOU_DID": "O que foi feito neste projeto:",
+    "I18N": "Internacionalização (i18n) com ngx-translate para inglês e português.",
+    "ELF_CRUD": "CRUD de usuários usando Elf para gerenciamento de estado.",
+    "LANG_SWITCH": "Seletor de idioma com ícones de bandeira e troca em tempo real."
+  },
   "TITLE": "elf-example",
   "USERS": "Usuários",
   "NEW_USER": "Novo Usuário",
