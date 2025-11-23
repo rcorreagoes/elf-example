@@ -5,13 +5,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 import { User } from '../../../model/user.model';
 import { UserRepository } from '../../../repository/user.repository';
 
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule, MatTableModule, MatPaginatorModule, MatCardModule],
+  imports: [
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatTableModule,
+    TranslatePipe,
+  ],
   templateUrl: './user-list.html',
   styleUrl: './user-list.scss',
 })

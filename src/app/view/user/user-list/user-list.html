@@ -1,7 +1,7 @@
 @if (userList.length > 0) {
 <mat-card class="user-table-container">
   <mat-card-title>
-    Usuários
+    {{ 'USERS' | translate }}
     <button
       mat-flat-button
       color="primary"
@@ -9,32 +9,32 @@
       (click)="newUser()"
     >
       <mat-icon>person_add</mat-icon>
-      Novo Usuário
+      {{ 'NEW_USER' | translate }}
     </button>
   </mat-card-title>
   <div class="table-wrapper">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <!-- Name Column -->
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef class="col-name">Name</th>
+        <th mat-header-cell *matHeaderCellDef class="col-name">{{ 'NAME' | translate }}</th>
         <td mat-cell *matCellDef="let user" class="col-name">{{ user?.name }}</td>
       </ng-container>
 
       <!-- Username Column -->
       <ng-container matColumnDef="username">
-        <th mat-header-cell *matHeaderCellDef class="col-username">Username</th>
+        <th mat-header-cell *matHeaderCellDef class="col-username">{{ 'USERNAME' | translate }}</th>
         <td mat-cell *matCellDef="let user" class="col-username">{{ user?.username }}</td>
       </ng-container>
 
       <!-- Phone Column -->
       <ng-container matColumnDef="phone">
-        <th mat-header-cell *matHeaderCellDef class="col-phone">Phone</th>
+        <th mat-header-cell *matHeaderCellDef class="col-phone">{{ 'PHONE' | translate }}</th>
         <td mat-cell *matCellDef="let user" class="col-phone">{{ user?.phone }}</td>
       </ng-container>
 
       <!-- Company Name Column -->
       <ng-container matColumnDef="company">
-        <th mat-header-cell *matHeaderCellDef class="col-company">Company</th>
+        <th mat-header-cell *matHeaderCellDef class="col-company">{{ 'COMPANY' | translate }}</th>
         <td mat-cell *matCellDef="let user" class="col-company">{{ user?.company.name }}</td>
       </ng-container>
 
@@ -42,10 +42,16 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef class="col-actions"></th>
         <td mat-cell *matCellDef="let user" class="col-actions">
-          <mat-icon class="icon-action icon-edit" (click)="editUser(user)" title="Editar"
+          <mat-icon
+            class="icon-action icon-edit"
+            (click)="editUser(user)"
+            [title]="'EDIT' | translate"
             >edit</mat-icon
           >
-          <mat-icon class="icon-action icon-delete" (click)="deleteUser(user)" title="Excluir"
+          <mat-icon
+            class="icon-action icon-delete"
+            (click)="deleteUser(user)"
+            [title]="'DELETE' | translate"
             >delete</mat-icon
           >
         </td>
@@ -57,5 +63,5 @@
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </mat-card>
 } @else {
-<div>Nenhum usuário encontrado.</div>
+<div>{{ 'NO_USERS' | translate }}</div>
 }

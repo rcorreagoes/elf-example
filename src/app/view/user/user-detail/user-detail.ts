@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 import { User } from '../../../model/user.model';
 import { UserRepository } from '../../../repository/user.repository';
 
@@ -26,6 +27,7 @@ import { UserRepository } from '../../../repository/user.repository';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslatePipe,
   ],
   templateUrl: './user-detail.html',
   styleUrl: './user-detail.scss',

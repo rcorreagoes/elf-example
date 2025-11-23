@@ -1,48 +1,48 @@
 <mat-card class="user-container">
-  <mat-card-title>Usuários</mat-card-title>
+  <mat-card-title>{{ 'USERS' | translate }}</mat-card-title>
   <mat-card-content>
     <form class="user-detail-form" [formGroup]="form">
       <mat-form-field appearance="outline" class="user-field">
-        <mat-label>Nome</mat-label>
+        <mat-label>{{ 'NAME' | translate }}</mat-label>
         <input matInput formControlName="name" />
       </mat-form-field>
       <mat-form-field appearance="outline" class="user-field">
-        <mat-label>Usuário</mat-label>
+        <mat-label>{{ 'USERNAME' | translate }}</mat-label>
         <input matInput formControlName="username" />
       </mat-form-field>
       <mat-form-field appearance="outline" class="user-field">
-        <mat-label>E-mail</mat-label>
+        <mat-label>{{ 'EMAIL' | translate }}</mat-label>
         <input matInput formControlName="email" />
       </mat-form-field>
       <mat-form-field appearance="outline" class="user-field">
-        <mat-label>Telefone</mat-label>
+        <mat-label>{{ 'PHONE' | translate }}</mat-label>
         <input matInput formControlName="phone" />
       </mat-form-field>
       <mat-form-field appearance="outline" class="user-field">
-        <mat-label>Website</mat-label>
+        <mat-label>{{ 'WEBSITE' | translate }}</mat-label>
         <input matInput formControlName="website" />
       </mat-form-field>
       <ng-container>
         <mat-form-field appearance="outline" class="user-field">
-          <mat-label>Empresa</mat-label>
+          <mat-label>{{ 'COMPANY' | translate }}</mat-label>
           <input matInput formControlName="companyName" />
         </mat-form-field>
       </ng-container>
       <ng-container>
         <mat-form-field appearance="outline" class="user-field">
-          <mat-label>Rua</mat-label>
+          <mat-label>{{ 'STREET' | translate }}</mat-label>
           <input matInput formControlName="street" />
         </mat-form-field>
         <mat-form-field appearance="outline" class="user-field">
-          <mat-label>Complemento</mat-label>
+          <mat-label>{{ 'SUITE' | translate }}</mat-label>
           <input matInput formControlName="suite" />
         </mat-form-field>
         <mat-form-field appearance="outline" class="user-field">
-          <mat-label>Cidade</mat-label>
+          <mat-label>{{ 'CITY' | translate }}</mat-label>
           <input matInput formControlName="city" />
         </mat-form-field>
         <mat-form-field appearance="outline" class="user-field">
-          <mat-label>CEP</mat-label>
+          <mat-label>{{ 'ZIPCODE' | translate }}</mat-label>
           <input matInput formControlName="zipcode" />
         </mat-form-field>
       </ng-container>
@@ -54,7 +54,7 @@
           (click)="cancel()"
           style="margin-right: 12px"
         >
-          Cancelar
+          {{ 'CANCEL' | translate }}
         </button>
         <button
           mat-flat-button
@@ -63,7 +63,7 @@
           (click)="save()"
           [disabled]="!form.valid"
         >
-          Gravar
+          {{ 'SAVE' | translate }}
         </button>
       </div>
     </form>
