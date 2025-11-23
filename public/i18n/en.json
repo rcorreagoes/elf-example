@@ -1,0 +1,20 @@
+{
+  "TITLE": "elf-example",
+  "USERS": "Users",
+  "NEW_USER": "New User",
+  "NAME": "Name",
+  "USERNAME": "Username",
+  "EMAIL": "Email",
+  "PHONE": "Phone",
+  "WEBSITE": "Website",
+  "COMPANY": "Company",
+  "STREET": "Street",
+  "SUITE": "Suite",
+  "CITY": "City",
+  "ZIPCODE": "Zipcode",
+  "EDIT": "Edit",
+  "DELETE": "Delete",
+  "SAVE": "Save",
+  "CANCEL": "Cancel",
+  "NO_USERS": "No users found."
+}

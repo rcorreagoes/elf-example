@@ -1,3 +1,26 @@
+<mat-card class="user-container">
+  <mat-card-content>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+        justify-content: flex-end;
+      "
+    >
+      <img
+        src="flags/pt.png"
+        alt="Português"
+        width="32"
+        style="cursor: pointer"
+        title="Português"
+      />
+      <img src="flags/uk.png" alt="English" width="32" style="cursor: pointer" title="English" />
+    </div>
+  </mat-card-content>
+</mat-card>
+
 <router-outlet>
   @if (loading) {
   <div style="display: flex; justify-content: center; align-items: center; min-height: 120px">

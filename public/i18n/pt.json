@@ -1,0 +1,20 @@
+{
+  "TITLE": "elf-example",
+  "USERS": "Usuários",
+  "NEW_USER": "Novo Usuário",
+  "NAME": "Nome",
+  "USERNAME": "Usuário",
+  "EMAIL": "E-mail",
+  "PHONE": "Telefone",
+  "WEBSITE": "Website",
+  "COMPANY": "Empresa",
+  "STREET": "Rua",
+  "SUITE": "Complemento",
+  "CITY": "Cidade",
+  "ZIPCODE": "CEP",
+  "EDIT": "Editar",
+  "DELETE": "Excluir",
+  "SAVE": "Gravar",
+  "CANCEL": "Cancelar",
+  "NO_USERS": "Nenhum usuário encontrado."
+}

@@ -1,4 +1,5 @@
 import { Component, OnDestroy, signal } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -6,7 +7,7 @@ import { UserRepository } from './repository/user.repository';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatProgressSpinnerModule],
+  imports: [RouterOutlet, MatProgressSpinnerModule, MatCardModule],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
