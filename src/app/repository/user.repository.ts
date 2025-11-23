@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createState, Store } from '@ngneat/elf';
 import {
+  deleteEntities,
   getAllEntities,
   resetActiveId,
   selectAllEntities,
@@ -24,10 +25,13 @@ export class UserRepository {
 
   constructor(private userService: UserService) {}
 
+  delete(id: number): void {
+    userStore.update(deleteEntities(id));
+  }
+
   fetchCollection(): Observable<User[]> {
     return this.userService.getAll().pipe(
       map((users: User[]) => {
-        console.log(users);
         userStore.update(setEntities(users));
         return users;
       })
@@ -46,11 +50,15 @@ export class UserRepository {
     userStore.update(resetActiveId());
   }
 
-  setActiveId(id: number) {
-    userStore.update(setActiveId(id));
+  setActiveId(id: number | null) {
+    if (id === null) {
+      userStore.update(resetActiveId());
+    } else {
+      userStore.update(setActiveId(id));
+    }
   }
 
-  updateUser(user: User) {
+  upsertUser(user: User) {
     userStore.update(upsertEntities(user));
   }
 }

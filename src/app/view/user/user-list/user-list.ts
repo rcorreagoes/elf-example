@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -10,7 +11,7 @@ import { UserRepository } from '../../../repository/user.repository';
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [MatIconModule, MatTableModule, MatPaginatorModule, MatCardModule],
+  imports: [MatButtonModule, MatIconModule, MatTableModule, MatPaginatorModule, MatCardModule],
   templateUrl: './user-list.html',
   styleUrl: './user-list.scss',
 })
@@ -21,15 +22,11 @@ export class UserList implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private readonly userRepository: UserRepository, private router: Router) {
-    this.userRepository
-      .fetchCollection()
-      .subscribe({
-        next: (result) => {
-          this.dataSource.data = result;
-          console.log(result);
-        },
-      })
-      .unsubscribe();
+    this.userRepository.fetchCollection().subscribe({
+      next: (result) => {
+        this.dataSource.data = result;
+      },
+    });
   }
 
   ngAfterViewInit() {
@@ -42,11 +39,18 @@ export class UserList implements AfterViewInit {
   }
 
   deleteUser(user: User) {
-    // Implemente a lógica de exclusão aqui (ex: abrir dialog de confirmação)
-    console.log('Excluir usuário:', user);
+    this.userRepository.delete(user.id);
+    this.dataSource.data = this.userRepository.getAll();
   }
 
   get userList() {
     return this.dataSource.data;
+  }
+
+  newUser() {
+    if (this.userRepository) {
+      this.userRepository.setActiveId(null);
+    }
+    this.router.navigate(['/detail']);
   }
 }

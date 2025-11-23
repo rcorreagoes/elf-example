@@ -1,6 +1,17 @@
 @if (userList.length > 0) {
 <mat-card class="user-table-container">
-  <mat-card-title>Usuários</mat-card-title>
+  <mat-card-title>
+    Usuários
+    <button
+      mat-flat-button
+      color="primary"
+      style="float: right; margin-top: -8px"
+      (click)="newUser()"
+    >
+      <mat-icon>person_add</mat-icon>
+      Novo Usuário
+    </button>
+  </mat-card-title>
   <div class="table-wrapper">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <!-- Name Column -->

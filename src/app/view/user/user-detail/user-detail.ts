@@ -11,9 +11,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { Router } from '@angular/router';
 import { User } from '../../../model/user.model';
 import { UserRepository } from '../../../repository/user.repository';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-detail',
@@ -31,7 +31,7 @@ import { Router } from '@angular/router';
   styleUrl: './user-detail.scss',
 })
 export class UserDetail {
-  user: User | null = null;
+  user: User | null;
   form: FormGroup;
 
   constructor(
@@ -59,19 +59,31 @@ export class UserDetail {
   }
 
   cancel() {
-    this.router.navigate(['/user']);
+    this.router.navigate(['/list']);
   }
 
   save() {
-    if (this.form.valid && this.user) {
+    if (this.form.valid) {
       const value = this.form.value;
-      const updatedUser: User = {
-        ...this.user,
-        ...value,
-        company: { ...this.user.company, ...value.company },
-        address: { ...this.user.address, ...value.address },
-      };
-      this.userRepository.updateUser(updatedUser);
+      let userToSave: User;
+      if (this.user) {
+        userToSave = {
+          ...this.user,
+          ...value,
+          company: { ...this.user.company, ...value.company },
+          address: { ...this.user.address, ...value.address },
+        };
+      } else {
+        // Novo usuário: gere um id temporário (ou use lógica apropriada)
+        userToSave = {
+          id: Date.now(),
+          ...value,
+          company: { ...value.company },
+          address: { ...value.address, geo: { lat: '', lng: '' } },
+        };
+      }
+      this.userRepository.upsertUser(userToSave);
+      this.cancel();
     }
   }
 }
