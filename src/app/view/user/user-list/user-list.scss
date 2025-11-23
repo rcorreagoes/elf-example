@@ -1,0 +1,81 @@
+// Largura fixa para cada coluna
+.col-name {
+	width: 180px;
+	max-width: 180px;
+	min-width: 120px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.col-username {
+	width: 140px;
+	max-width: 140px;
+	min-width: 100px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.col-phone {
+	width: 120px;
+	max-width: 120px;
+	min-width: 90px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.col-company {
+	width: 180px;
+	max-width: 180px;
+	min-width: 120px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.col-actions {
+	width: 70px;
+	max-width: 70px;
+	min-width: 50px;
+	text-align: center;
+	white-space: nowrap;
+}
+// Ícones de ação na tabela
+.icon-action {
+	cursor: pointer;
+	font-size: 22px;
+	vertical-align: middle;
+	margin: 0 6px;
+	transition: color 0.2s;
+}
+.icon-edit {
+	color: #1976d2; /* Azul Material */
+}
+.icon-delete {
+	color: #d32f2f; /* Vermelho Material */
+}
+.icon-action:hover {
+	filter: brightness(1.2);
+}
+.mat-column-actions {
+	width: 80px;
+	text-align: center;
+}
+
+.mat-icon-button {
+	margin: 0 2px;
+}
+.user-table-container {
+	margin: 32px auto;
+	margin: 16px;
+  height: calc(100vh - 34px);
+	padding: 24px 16px 8px 16px;
+}
+
+.table-wrapper {
+	overflow-x: auto;
+}
+
+table.mat-table {
+	min-width: 600px;
+}
+
+mat-card-title {
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin-bottom: 16px;
+}

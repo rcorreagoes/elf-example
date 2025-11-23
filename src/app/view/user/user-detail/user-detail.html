@@ -1,0 +1,69 @@
+<mat-card class="user-container">
+  <mat-card-title>Usuários</mat-card-title>
+  <mat-card-content>
+    @if (user) {
+    <form class="user-detail-form">
+      <mat-form-field appearance="outline" class="user-field">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="user.name" name="name" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="user-field">
+        <mat-label>Usuário</mat-label>
+        <input matInput [(ngModel)]="user.username" name="username" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="user-field">
+        <mat-label>E-mail</mat-label>
+        <input matInput [(ngModel)]="user.email" name="email" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="user-field">
+        <mat-label>Telefone</mat-label>
+        <input matInput [(ngModel)]="user.phone" name="phone" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="user-field">
+        <mat-label>Website</mat-label>
+        <input matInput [(ngModel)]="user.website" name="website" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="user-field">
+        <mat-label>Empresa</mat-label>
+        <input matInput [(ngModel)]="user.company.name" name="company" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="user-field">
+        <mat-label>Rua</mat-label>
+        <input matInput [(ngModel)]="user.address.street" name="street" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="user-field">
+        <mat-label>Complemento</mat-label>
+        <input matInput [(ngModel)]="user.address.suite" name="suite" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="user-field">
+        <mat-label>Cidade</mat-label>
+        <input matInput [(ngModel)]="user.address.city" name="city" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="user-field">
+        <mat-label>CEP</mat-label>
+        <input matInput [(ngModel)]="user.address.zipcode" name="zipcode" />
+      </mat-form-field>
+      <div class="form-actions">
+        <button
+          mat-stroked-button
+          color="basic"
+          type="button"
+          (click)="cancel()"
+          style="margin-right: 12px"
+        >
+          Cancelar
+        </button>
+        <button
+          mat-flat-button
+          color="primary"
+          type="button"
+          (click)="save()"
+          [disabled]="!form.valid"
+        >
+          Gravar
+        </button>
+      </div>
+    </form>
+    }
+  </mat-card-content>
+</mat-card>
