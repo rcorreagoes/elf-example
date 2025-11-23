@@ -31,7 +31,7 @@ import { UserRepository } from '../../../repository/user.repository';
   styleUrl: './user-detail.scss',
 })
 export class UserDetail {
-  user: User | null;
+  user: User;
   form: FormGroup;
 
   constructor(
@@ -39,22 +39,26 @@ export class UserDetail {
     private fb: FormBuilder,
     private router: Router
   ) {
-    this.user = this.userRepository.getActiveId();
+    this.user = this.userRepository.getActiveId() || {
+      name: '',
+      username: '',
+      email: '',
+      phone: '',
+      website: '',
+      company: { name: '' },
+      address: { street: '', suite: '', city: '', zipcode: '', geo: { lat: '', lng: '' } },
+    };
     this.form = this.fb.group({
       name: [this.user?.name || '', Validators.required],
       username: [this.user?.username || '', Validators.required],
       email: [this.user?.email || '', [Validators.required, Validators.email]],
       phone: [this.user?.phone || '', Validators.required],
       website: [this.user?.website || ''],
-      company: this.fb.group({
-        name: [this.user?.company?.name || ''],
-      }),
-      address: this.fb.group({
-        street: [this.user?.address?.street || ''],
-        suite: [this.user?.address?.suite || ''],
-        city: [this.user?.address?.city || ''],
-        zipcode: [this.user?.address?.zipcode || ''],
-      }),
+      companyName: [this.user?.company?.name || ''],
+      street: [this.user?.address?.street || ''],
+      suite: [this.user?.address?.suite || ''],
+      city: [this.user?.address?.city || ''],
+      zipcode: [this.user?.address?.zipcode || ''],
     });
   }
 
@@ -65,25 +69,29 @@ export class UserDetail {
   save() {
     if (this.form.valid) {
       const value = this.form.value;
-      let userToSave: User;
-      if (this.user) {
-        userToSave = {
-          ...this.user,
-          ...value,
-          company: { ...this.user.company, ...value.company },
-          address: { ...this.user.address, ...value.address },
-        };
-      } else {
-        // Novo usuário: gere um id temporário (ou use lógica apropriada)
-        userToSave = {
-          id: Date.now(),
-          ...value,
-          company: { ...value.company },
-          address: { ...value.address, geo: { lat: '', lng: '' } },
-        };
-      }
-      this.userRepository.upsertUser(userToSave);
-      this.cancel();
+      const userToSave: User = {
+        id: this.user?.id ?? 0,
+        name: value.name,
+        username: value.username,
+        email: value.email,
+        phone: value.phone,
+        website: value.website,
+        company: {
+          name: value.companyName,
+          catchPhrase: this.user?.company?.catchPhrase ?? '',
+          bs: this.user?.company?.bs ?? '',
+        },
+        address: {
+          street: value.street,
+          suite: value.suite,
+          city: value.city,
+          zipcode: value.zipcode,
+          geo: this.user?.address?.geo ?? { lat: '', lng: '' },
+        },
+      };
+      this.userRepository.upsertUser(userToSave).subscribe(() => {
+        this.cancel();
+      });
     }
   }
 }

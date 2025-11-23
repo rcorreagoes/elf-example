@@ -11,7 +11,7 @@ import {
   withActiveId,
   withEntities,
 } from '@ngneat/elf-entities';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../model/user.model';
 import { UserService } from '../service/user.service';
@@ -29,11 +29,11 @@ export class UserRepository {
     userStore.update(deleteEntities(id));
   }
 
-  fetchCollection(): Observable<User[]> {
+  fetchCollection(): Observable<void> {
     return this.userService.getAll().pipe(
       map((users: User[]) => {
         userStore.update(setEntities(users));
-        return users;
+        return;
       })
     );
   }
@@ -44,6 +44,15 @@ export class UserRepository {
 
   getAll(): User[] {
     return userStore.query(getAllEntities());
+  }
+
+  /**
+   * This method exists only because there is no backend/database connection.
+   * In a real scenario, the backend/database would return the new id after insert.
+   */
+  private getLastUser(): User | null {
+    const all = userStore.query(getAllEntities());
+    return all.length > 0 ? all[all.length - 1] : null;
   }
 
   removeActive() {
@@ -58,7 +67,16 @@ export class UserRepository {
     }
   }
 
-  upsertUser(user: User) {
+  upsertUser(user: User): Observable<void> {
+    if (!user.id) {
+      /**
+       * Check the getLastUser comment
+       */
+      const last = this.getLastUser();
+      user.id = last ? last.id + 1 : 1;
+    }
     userStore.update(upsertEntities(user));
+
+    return of(void 0);
   }
 }

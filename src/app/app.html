@@ -1,1 +1,7 @@
-<router-outlet />
+<router-outlet>
+  @if (loading) {
+  <div style="display: flex; justify-content: center; align-items: center; min-height: 120px">
+    <mat-spinner diameter="48"></mat-spinner>
+  </div>
+  }
+</router-outlet>

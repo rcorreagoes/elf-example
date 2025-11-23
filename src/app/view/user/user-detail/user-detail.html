@@ -1,47 +1,51 @@
 <mat-card class="user-container">
   <mat-card-title>Usuários</mat-card-title>
   <mat-card-content>
-    <form class="user-detail-form">
+    <form class="user-detail-form" [formGroup]="form">
       <mat-form-field appearance="outline" class="user-field">
         <mat-label>Nome</mat-label>
-        <input matInput [(ngModel)]="user.name" name="name" />
+        <input matInput formControlName="name" />
       </mat-form-field>
       <mat-form-field appearance="outline" class="user-field">
         <mat-label>Usuário</mat-label>
-        <input matInput [(ngModel)]="user.username" name="username" />
+        <input matInput formControlName="username" />
       </mat-form-field>
       <mat-form-field appearance="outline" class="user-field">
         <mat-label>E-mail</mat-label>
-        <input matInput [(ngModel)]="user.email" name="email" />
+        <input matInput formControlName="email" />
       </mat-form-field>
       <mat-form-field appearance="outline" class="user-field">
         <mat-label>Telefone</mat-label>
-        <input matInput [(ngModel)]="user.phone" name="phone" />
+        <input matInput formControlName="phone" />
       </mat-form-field>
       <mat-form-field appearance="outline" class="user-field">
         <mat-label>Website</mat-label>
-        <input matInput [(ngModel)]="user.website" name="website" />
+        <input matInput formControlName="website" />
       </mat-form-field>
-      <mat-form-field appearance="outline" class="user-field">
-        <mat-label>Empresa</mat-label>
-        <input matInput [(ngModel)]="user.company.name" name="company" />
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="user-field">
-        <mat-label>Rua</mat-label>
-        <input matInput [(ngModel)]="user.address.street" name="street" />
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="user-field">
-        <mat-label>Complemento</mat-label>
-        <input matInput [(ngModel)]="user.address.suite" name="suite" />
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="user-field">
-        <mat-label>Cidade</mat-label>
-        <input matInput [(ngModel)]="user.address.city" name="city" />
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="user-field">
-        <mat-label>CEP</mat-label>
-        <input matInput [(ngModel)]="user.address.zipcode" name="zipcode" />
-      </mat-form-field>
+      <ng-container>
+        <mat-form-field appearance="outline" class="user-field">
+          <mat-label>Empresa</mat-label>
+          <input matInput formControlName="companyName" />
+        </mat-form-field>
+      </ng-container>
+      <ng-container>
+        <mat-form-field appearance="outline" class="user-field">
+          <mat-label>Rua</mat-label>
+          <input matInput formControlName="street" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="user-field">
+          <mat-label>Complemento</mat-label>
+          <input matInput formControlName="suite" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="user-field">
+          <mat-label>Cidade</mat-label>
+          <input matInput formControlName="city" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="user-field">
+          <mat-label>CEP</mat-label>
+          <input matInput formControlName="zipcode" />
+        </mat-form-field>
+      </ng-container>
       <div class="form-actions">
         <button
           mat-stroked-button

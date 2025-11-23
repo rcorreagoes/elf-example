@@ -22,11 +22,7 @@ export class UserList implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private readonly userRepository: UserRepository, private router: Router) {
-    this.userRepository.fetchCollection().subscribe({
-      next: (result) => {
-        this.dataSource.data = result;
-      },
-    });
+    this.dataSource.data = this.userRepository.getAll();
   }
 
   ngAfterViewInit() {
